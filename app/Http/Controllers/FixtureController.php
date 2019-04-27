@@ -4,10 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Fixture;
 use App\Jobs\ProcessMatchResults;
+use App\Repositories\LeagueRepository;
 use Illuminate\Http\Request;
 
 class FixtureController extends Controller
 {
+    protected $leagueRepo;
+
+    public function __construct(LeagueRepository $leagueRepo)
+    {
+        $this->leagueRepo = $leagueRepo;
+    }
+
     public function results($id){
         $fixture = Fixture::where('league_id', $id)->orderBy('id', 'asc')->get();
 
