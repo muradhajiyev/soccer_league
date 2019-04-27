@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
+Route::resource('/league', 'LeagueController');
+
+Route::get('/league/{id}/results', 'FixtureController@results');
+Route::get('/fixture/{id}/results/edit', 'FixtureController@editResult');
+Route::post('/fixture/{id}/results/update', 'FixtureController@updateResult');
+Route::post('/playNextFixture/{id}', 'FixtureController@playNextFixture');
+Route::post('/playAllFixture/{id}', 'FixtureController@playAllFixture');
