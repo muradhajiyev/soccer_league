@@ -76,12 +76,7 @@
                <div class="panel-heading">Predictions of Championships</div>
                <div class="panel-body">
                    <h5 style="text-align: center">{{$league->current_week}} th week predictions of Championship</h5>
-                   <table class="table">
-                       <tr>
-                           <td>Galatasaray</td>
-                           <td>45%</td>
-                       </tr>
-                   </table>
+                   <h4>TODO LIST FOR PREDICTION</h4>
                </div>
            </div>
        </div>
