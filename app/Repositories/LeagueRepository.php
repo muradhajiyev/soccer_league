@@ -24,6 +24,11 @@ class LeagueRepository
             ->orderBy('points','desc')
             ->orderBy('gd','desc')
             ->get();
+
+        $standings[0]->prediction = 90;
+        $standings[1]->prediction = 90;
+        $standings[2]->prediction = 90;
+        $standings[3]->prediction = 90;
         return $standings;
     }
 

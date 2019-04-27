@@ -50,7 +50,11 @@
            <div class="panel panel-primary">
                <div class="panel-heading">Match Results</div>
                <div class="panel-body">
-                   <h5 style="text-align: center">{{$league->current_week--}} th week match results</h5>
+                   @if($league->current_week == 0)
+                       <h5 style="text-align: center">The League has just created new.</h5>
+                   @else
+                       <h5 style="text-align: center">{{$league->current_week}} th week match results</h5>
+                   @endif
                     <table class="table">
                         @foreach($league->last_week_results as $result)
                         <tr>
@@ -65,22 +69,23 @@
            </div>
        </div>
    </div>
+    @if($league->current_week >= 4)
    <div class="row">
        <div class="col-md-6 col-md-offset-3">
            <div class="panel panel-primary">
                <div class="panel-heading">Predictions of Championships</div>
                <div class="panel-body">
-                   <h5 style="text-align: center">th week match results</h5>
+                   <h5 style="text-align: center">{{$league->current_week}} th week predictions of Championship</h5>
                    <table class="table">
                        <tr>
                            <td>Galatasaray</td>
-                           <td>2-3</td>
-                           <td>Fenerbahche</td>
+                           <td>45%</td>
                        </tr>
                    </table>
                </div>
            </div>
        </div>
+       @endif
        <div class="col-md-3">
            @if($league->has_next_fixture)
                <form action="{{ url('/playNextFixture/'.$id) }}" method="POST">

@@ -26,7 +26,7 @@ class League extends Model
     public function getCurrentWeekAttribute(){
         $fixture = Fixture::played()->where('league_id', $this->id)->max('week');
         $countNonPlayedMatches = Fixture::notPlayed()->where('league_id', $this->id)->count();
-        return $fixture ?? ++$fixture;
+        return $fixture ?? 0;
     }
 
     public function getLastWeekResultsAttribute(){

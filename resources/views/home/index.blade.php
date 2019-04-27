@@ -20,7 +20,13 @@
                     @foreach($leagues as $league)
                     <tr>
                         <td>{{$league->name}}</td>
-                        <td>{{$league->current_week}}</td>
+                        <td>
+                            @if($league->current_week == 0)
+                                The League has just created new.
+                            @else
+                                {{$league->current_week}}
+                            @endif
+                        </td>
                         <td>
                             <a href="{{route('league.show', $league->id)}}" type="button" class="btn btn-primary">Go</a>
                         </td>
